@@ -1,0 +1,61 @@
+const { check } = require("express-validator")
+const validateResults = require("../utils/handleValidator")
+
+const validatorRegister = [
+    check("name").exists().notEmpty().isLength( {min:3, max: 99} ),
+    check("cif").exists().notEmpty().isLength( {min:9, max: 9} ),
+    check("address").exists().notEmpty(),
+    check("email").exists().notEmpty().isEmail(),
+    check("phone").exists().notEmpty(),
+
+   
+    (req, res, next) => {
+        return validateResults(req, res, next)
+    }
+]
+
+const validatorRegister2 = [
+    check("city").exists().notEmpty(),
+    check("activity").exists().notEmpty(),
+    check("title").exists().notEmpty(),
+    check("summary").exists().notEmpty(),
+    
+  
+    (req, res, next) => {
+        return validateResults(req, res, next)
+    }
+]
+
+
+const validatorText = [
+    check("text").exists().notEmpty(),
+
+    (req, res, next) => {
+        return validateResults(req, res, next)
+    }
+]
+
+const validatorReview=[
+    check("review").exists().notEmpty(),
+    check("score").exists().isFloat({ min: 0, max: 5 }),
+
+    (req, res, next) => {
+        return validateResults(req, res, next)
+    }
+]
+
+const validatorCIF=[
+   
+    check("cif").exists().notEmpty().isLength( {min:9, max: 9} ),
+    (req, res, next) => {
+        return validateResults(req, res, next)
+    }
+]
+const validatorGetItem = [
+    check("id").exists().notEmpty().isMongoId(),
+    (req, res, next) => {
+        return validateResults(req, res, next)
+    }
+]
+
+module.exports = { validatorCIF,validatorGetItem,validatorRegister,validatorRegister2,validatorText,validatorReview }

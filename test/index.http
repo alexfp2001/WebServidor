@@ -1,0 +1,161 @@
+
+###register user#######       paso decimotercero
+POST http://localhost:3000/api/auth/register HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "Pablos",
+    "age": 20,
+    "email": "pabloss@gmail.com",
+    "password": "Pabslito1234",
+    "oferts":true,
+    "city":"madrid",
+    "Interest":"todo"
+
+}
+
+### login ########
+
+POST http://localhost:3000/api/auth/login HTTP/1.1
+Content-Type: application/json
+
+{
+    "email": "admins8@test.com",
+    "password": "HolsaMundo.01"
+}
+
+
+#### actualizar user #########  paso decimocuarto
+PUT http://localhost:3000/api/auth/update HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDM1NTFlOTMwNzg5MjcyOGU0ZTUxMDYiLCJyb2xlIjpbImFkbWluIl0sImlhdCI6MTY4MTQxMTI5NiwiZXhwIjoyMDQxNDA3Njk2fQ.t-mrwiVHjCWYu9XWmEhvNc1mTQFdMqJ-eWl7bufFVEc
+
+{
+    "name": "Menganos",
+    "age":21
+
+}
+###### delete user ###########
+DELETE http://localhost:3000/api/auth/delete HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDM5NzY2NTUxYjk2MzBkOTNhNjZlNjkiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNjgxNDg3NDYxLCJleHAiOjIwNDE0ODM4NjF9.8bo7DhglKPbACCzPj65w0h2CGL-9NgI71PowQQE8o8g
+
+
+
+
+
+###registrar empresa##### Primer Paso
+POST http://localhost:3000/api/commerce/register HTTP/1.1 
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDM1NTFlOTMwNzg5MjcyOGU0ZTUxMDYiLCJyb2xlIjpbImFkbWluIl0sImlhdCI6MTY4MTQxMTI5NiwiZXhwIjoyMDQxNDA3Njk2fQ.t-mrwiVHjCWYu9XWmEhvNc1mTQFdMqJ-eWl7bufFVEc
+
+{
+    "name": "PRUEBA A BORRAR2",
+    "cif": "B12335928",
+    "address": "Madrid, gran via",
+    "email": "SD@gmail.com",
+    "phone": "912158965"
+
+
+}
+#######actualizar commercio######################## Primer paso dos
+
+PUT http://localhost:3000/api/commerce/updateCommerce/6436d3d2aca23c1be37af967 HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDM1NTFlOTMwNzg5MjcyOGU0ZTUxMDYiLCJyb2xlIjpbImFkbWluIl0sImlhdCI6MTY4MTQyMTgxOCwiZXhwIjoyMDQxNDE4MjE4fQ.6CkzkEvfotpNs7twiFj58XE1oMjn8r8rMOT6eYiw93I
+
+{
+      "name": "BUg2gsys4x4",
+      "cif": "B12428258",
+      "address": "bdadajozz",
+      "email": "buggdys@gmail.com",
+      "phone": "91232434356"
+}
+
+
+#####delete commerce ##tercer paso
+
+DELETE http://localhost:3000/api/commerce/deleteCommerce HTTP/1.1  #
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDM1NTFlOTMwNzg5MjcyOGU0ZTUxMDYiLCJyb2xlIjpbImFkbWluIl0sImlhdCI6MTY4MTQxMTI5NiwiZXhwIjoyMDQxNDA3Njk2fQ.t-mrwiVHjCWYu9XWmEhvNc1mTQFdMqJ-eWl7bufFVEc
+
+{
+    "cif": "B12335628"
+}
+
+##### get activitys   ###segundo paso paso noveno
+
+GET http://localhost:3000/api/commerce/getActivitys     
+
+
+##############get activitys ordenador por scoring ################### paso decimosegundo
+GET http://localhost:3000/api/commerce/getActivitys?scoring=true
+########get activitys by id ############### paso decimo
+GET http://localhost:3000/api/commerce/getActivitys/6439436af25f8a08eb101e4e
+
+######### get activitys por la ciudad###########
+GET http://localhost:3000/api/commerce/getActivitysFiltered/madrid
+
+####### get activitys por la ciudad y la actividad ########### tecnologia paso undecimo
+GET http://localhost:3000/api/commerce/getActivitysFiltered/madrid/coche
+
+#get commerce by id tienes que ser admin##  ####segundo paso
+###
+GET http://localhost:3000/api/commerce/getCommerce/6436d3d2aca23c1be37af967    
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDM1NTFlOTMwNzg5MjcyOGU0ZTUxMDYiLCJyb2xlIjpbImFkbWluIl0sImlhdCI6MTY4MTQxMTI5NiwiZXhwIjoyMDQxNDA3Njk2fQ.t-mrwiVHjCWYu9XWmEhvNc1mTQFdMqJ-eWl7bufFVEc
+
+
+##########modifica los datos de tu comercio############# ####Paso cuarto
+#apple eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDM5NDM2YWYyNWY4YTA4ZWIxMDFlNGUiLCJpYXQiOjE2ODE0NzQ0MTAsImV4cCI6MjA0MTQ3MDgxMH0._hNXsHn_odlpXBFdZ0g_AJHgoOfsR7F5VS4K8in6cb8
+#buggis eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDM2ZDNkMmFjYTIzYzFiZTM3YWY5NjciLCJpYXQiOjE2ODEzMTQ3NzAsImV4cCI6MjA0MTMxMTE3MH0.DqB0wiWYWMxhLP1qKwd7IXLgMZx75n38b3TbjUYbpbE
+PATCH  http://localhost:3000/api/commerce/register/mainData HTTP/1.1  
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDM5NDM2YWYyNWY4YTA4ZWIxMDFlNGUiLCJpYXQiOjE2ODE0NzQ0MTAsImV4cCI6MjA0MTQ3MDgxMH0._hNXsHn_odlpXBFdZ0g_AJHgoOfsR7F5VS4K8in6cb8
+
+{
+    "city": "madrid",
+    "activity": "tecnologia",
+    "title": "Venta de moviles",
+    "summary": "vendemos los mejores productos"
+}
+############### elimina tus actividades ################## ###paso septimo
+DELETE http://localhost:3000/api/commerce/register/mainData HTTP/1.1
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDM2ZDNkMmFjYTIzYzFiZTM3YWY5NjciLCJpYXQiOjE2ODEzMTQ3NzAsImV4cCI6MjA0MTMxMTE3MH0.DqB0wiWYWMxhLP1qKwd7IXLgMZx75n38b3TbjUYbpbE
+####subir textos### ###paso quinto
+POST  http://localhost:3000/api/commerce/register/addText HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDM2ZDNkMmFjYTIzYzFiZTM3YWY5NjciLCJpYXQiOjE2ODEzMTQ3NzAsImV4cCI6MjA0MTMxMTE3MH0.DqB0wiWYWMxhLP1qKwd7IXLgMZx75n38b3TbjUYbpbE
+
+{
+    "text":"texto de prueba 2 para ver que esta bien"
+}
+
+
+######todos los usuarios que se encuentran en mi ciudad###### paso octavo
+GET http://localhost:3000/api/commerce/getUsersFromMyCity
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDM5NDM2YWYyNWY4YTA4ZWIxMDFlNGUiLCJpYXQiOjE2ODE0NzQ0MTAsImV4cCI6MjA0MTQ3MDgxMH0._hNXsHn_odlpXBFdZ0g_AJHgoOfsR7F5VS4K8in6cb8
+
+#####subir fotos####  paso sexto
+POST http://localhost:3000/api/commerce/register/addPhoto HTTP/1.1
+Content-Type: multipart/form-data; boundary=Boundry
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDM2ZDNkMmFjYTIzYzFiZTM3YWY5NjciLCJpYXQiOjE2ODEzMTQ3NzAsImV4cCI6MjA0MTMxMTE3MH0.DqB0wiWYWMxhLP1qKwd7IXLgMZx75n38b3TbjUYbpbE
+
+--Boundry
+Content-Disposition: form-data; name="image"; filename="image.jpg"
+Content-Type: image/jpg
+
+< ./image.jpg
+--Boundry--
+
+###hacer una review##########solo la puede hacer un usuario registrado paso decimoquinto
+POST  http://localhost:3000/api/commerce/rate/B12485272 HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDM1NTFlOTMwNzg5MjcyOGU0ZTUxMDYiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNjgxMzM3MzAyLCJleHAiOjIwNDEzMzM3MDJ9.c8Es79JWpyvTHh1bGn-OUS76a1dPax3t31q607J85y4
+
+{
+    "review": "Genial",
+    "score": 5
+}
+
+
+######apple con actividades-> eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDM5NDM2YWYyNWY4YTA4ZWIxMDFlNGUiLCJpYXQiOjE2ODE0NzQ0MTAsImV4cCI6MjA0MTQ3MDgxMH0._hNXsHn_odlpXBFdZ0g_AJHgoOfsR7F5VS4K8in6cb8
+###### user con permisos-> eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDM1NTFlOTMwNzg5MjcyOGU0ZTUxMDYiLCJyb2xlIjpbImFkbWluIl0sImlhdCI6MTY4MTkyNDAzMiwiZXhwIjoyMDQxOTIwNDMyfQ.t8r9O2VAAiycroLb6-a9ILP2ZpP0VNrjpJb_l0CBHP4
